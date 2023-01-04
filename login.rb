@@ -4,6 +4,7 @@ class LoginPage < Page
   def initialize
     super
     visit "https://<accounts>:<BvY4g5WCJA>@https://accounts.awesome-services.net/login"
+    
     # raise "Login page not ready" unless
     #   is_displayed?(Login_Form)
   end
