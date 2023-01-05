@@ -26,17 +26,29 @@ class CreateCourse < Page
     p "#{dropdown_list.size}"
     level = dropdown_list[0]
     level.click
-
-    level_list = finds(css: ".shadow-md.block > ul > li")
+    sleep (1)
+    level_list = finds(css: ".shadow-md.block li")
     p "#{level_list.size}"
-    level_list [1].click
-    sleep (3)
-    #level_list [0].click
+
+    level_list[1].click
+    click(css: "button[type='submit']")
     sleep (10)
-    #level_list = {css:  }
    end
+
+   def add_content_component
+    # (tittle, level_index, instructor_index[], category_index[], description)
+    button = finds(css: ".disabled:hover:border-primary-100")
+    p "#{button.size}"
+    button[3].click
+
+    click(xpath: "//*[@id='__next']/div/main/div/div/div[3]/div[3]/aside/ul/li[1]/svg")
+    sleep(5)
+   end
+
+
 end
 
   
 createCourse = CreateCourse.new
 createCourse.input_course_infor 
+createCourse.add_content_component
